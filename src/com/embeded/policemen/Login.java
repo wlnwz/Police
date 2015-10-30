@@ -72,7 +72,6 @@ public class Login extends Activity implements OnClickListener {
 	}
 
 	private void InitView() {
-		// TODO Auto-generated method stub
 
 		etLoginName = (EditText) findViewById(R.id.loginname);
 		etPassword = (EditText) findViewById(R.id.password);
@@ -164,7 +163,7 @@ public class Login extends Activity implements OnClickListener {
 				intent.putExtra("phone", phone);
 				intent.putExtra("id", ID);
 				intent.putExtra("state", state);
-				System.out.println(loginNameValue + phone + ID + state);
+//				System.out.println(loginNameValue + phone + ID + state);
 				startActivity(intent);
 				// auto_check = false;
 				Login.this.finish();
