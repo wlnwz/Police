@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Police</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+ <string name="ourinfo">作者：yeran==Ge bing\n邮箱：binggxdian@163.com\n版权所有  copyright©  V1.0</string>
+  <string name="out">感谢您的支持！</string>
+  <string name="maintext">该行节前开展安全保卫“三个一”活动，即开展一次安全教育活动、开展一次处置突发事件演练和开展一次安全检查。
+     开展安全教育，防范于未然。对所辖金库、网点、自助银行开展安全检查，检查的重
+     点主要是金库值守人员在位情况，视频监控、报警设备、联动门等安防设施运行情况。</string>
+</resources>

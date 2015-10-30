@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffdbdbdb"
+    android:gravity="left"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="bottom"
+        android:padding="5dip" >
+
+     <TextView
+            android:id="@+id/return001"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/prev"
+             />
+
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+             android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="报警记录"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+        
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/Listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:fadingEdge='none'
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginBottom="10dp" >
+</ListView>
+
+
+
+</RelativeLayout>

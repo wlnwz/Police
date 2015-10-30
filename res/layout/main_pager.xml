@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff" >
+
+    <RelativeLayout
+        android:id="@+id/head_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:gravity="bottom"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/name_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:gravity="center"           
+            android:text="Police"
+            android:textColor="#ff000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/showLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/menu1"
+            />
+
+         <ImageView
+             android:id="@+id/read"
+             android:layout_width="10dp"
+             android:layout_height="10dp"
+             android:layout_marginLeft="25dp"
+              android:layout_marginTop="5dp"
+             android:src="@drawable/read" 
+             android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/head_layout"
+        android:background="@color/bg_color_deep" >
+    </android.support.v4.view.ViewPager>
+    
+    <ListView
+        android:id="@+id/Listview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignTop="@+id/pager"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:visibility="gone">        
+
+    </ListView>
+    
+     <TextView
+         android:id="@+id/text3"
+         android:layout_width="20dp"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignTop="@+id/text2"
+         android:layout_marginLeft="81dp"
+         android:layout_marginTop="24dp"
+         android:text="克勤奉公"
+         android:textColor="@color/black"
+         android:textSize="20dp" />
+
+     <TextView
+         android:id="@+id/text2"
+         android:layout_width="20dp"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/text1"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="16dp"
+         android:text="立警为公"
+         android:textColor="@color/black"
+         android:textSize="20dp" />
+
+     <TextView
+         android:id="@+id/text1"
+         android:layout_width="20dp"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@+id/pager"
+         android:layout_marginLeft="56dp"
+         android:layout_marginTop="78dp"
+         android:layout_toRightOf="@+id/text2"
+         android:text="执法为民"
+         android:textColor="@color/black"
+         android:textSize="20dp" />
+ 
+</RelativeLayout>

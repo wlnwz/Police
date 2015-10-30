@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>   
+    <string-array name = "actions">
+    <item>事件选择</item>
+    <item>民事案件</item>
+    <item>违规</item>
+    <item>打砸闹事</item>
+    <item>抢劫(严重)</item>
+      <item>车祸(严重)</item>
+        <item>民族纠纷(严重)</item>
+   </string-array>
+   
+  <string-array name="levels">
+        <item>--等级选择--</item>
+        <item>四级危险</item>
+        <item>三级危险</item>
+        <item>二级重大危险</item>
+        <item>一级危机(谨慎选择)</item>
+        <item>*特级*(谨慎选择)</item>      
+    </string-array>
+    
+   </resources>
+  
+    
+    

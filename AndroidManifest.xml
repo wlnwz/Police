@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.embeded.policemen"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/police"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" 
+       android:allowTaskReparenting="true">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="xj7BPOEkqOHe8Q8YhAZrI9TE"/>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <activity
+            android:name="com.embeded.policemen.PageActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.embeded.slidingmenu.view.SlidingMenu"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.embeded.policemen.MaindemoActivity"
+            android:screenOrientation="portrait"
+            android:allowTaskReparenting="true"/>
+        <activity
+            android:name="com.embeded.policemen.Dealingwith"
+            android:screenOrientation="portrait" /> 
+         <activity
+            android:name="com.embeded.policemen.Detail"
+            android:screenOrientation="portrait" /> 
+        <activity
+            android:name="com.embeded.policemen.Finish"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.embeded.policemen.Login"
+            android:screenOrientation="portrait" />    
+      <activity
+            android:name="com.embeded.policemen.More"
+            android:screenOrientation="portrait" /> 
+     <activity
+            android:name="com.embeded.policemen.Myprepare"
+            android:screenOrientation="portrait" />            
+      <activity
+            android:name="com.embeded.policemen.Myrecord"
+            android:screenOrientation="portrait" />
+      <activity
+            android:name="com.embeded.policemen.Myself"
+            android:screenOrientation="portrait" />
+       <activity
+            android:name="com.embeded.policemen.PrepareMore"
+            android:screenOrientation="portrait" />            
+      <activity
+            android:name="com.embeded.policemen.RecordMore"
+            android:screenOrientation="portrait" />
+      <activity
+            android:name="com.embeded.policemen.Note"
+            android:screenOrientation="portrait" />
+       <activity
+            android:name="com.embeded.policemen.Alltext"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
