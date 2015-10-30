@@ -53,9 +53,9 @@ public class Myself extends Activity{
 //					Myself.this.finish();
 					
 					Intent intent = new Intent(Myself.this,
-							Login.class);
+							LoginActivity.class);
 					
-					Login.sp.edit().putBoolean("AUTO_ISCHECK", false).commit();			
+					LoginActivity.sp.edit().putBoolean("AUTO_ISCHECK", false).commit();			
 					// Login.sp.edit().clear().commit();  Çå¿Õsharepreference
 					// Çå¿ÕÕ»
 					intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);

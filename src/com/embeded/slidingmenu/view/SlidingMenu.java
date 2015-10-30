@@ -17,8 +17,6 @@ package com.embeded.slidingmenu.view;
 
 
 
-import com.embeded.policemen.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -30,7 +28,6 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Scroller;
-import android.widget.RelativeLayout.LayoutParams;
 
 
 public class SlidingMenu extends RelativeLayout {

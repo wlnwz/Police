@@ -86,7 +86,7 @@
          android:layout_height="60dp" >
 
          <TextView
-             android:id="@+id/more"
+             android:id="@+id/tv_more"
              android:layout_width="45dp"
              android:layout_height="45dp"
              android:layout_alignParentBottom="true"

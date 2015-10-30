@@ -46,22 +46,21 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import com.util.Encrypt;
 import com.util.SysApplication;
 
-public class Login extends Activity implements OnClickListener {
+public class LoginActivity extends Activity implements OnClickListener {
 
 	private TextView btnLoginCancel;
 	private EditText etLoginName, etPassword;
 	private Button btnLogin;
 	URL url = null;
 	HttpURLConnection httpurlconnection = null;
-	private String responseMsg = "", phone = "0", ID, state;
+	private String responseMsg = "", phone = "0", id, state;
 	private String loginNameValue, passwordValue;
 
 	private static final int REQUEST_TIMEOUT = 5 * 1000;// 设置请求超时10秒钟
 	private static final int SO_TIMEOUT = 10 * 1000; // 设置等待数据超时时间10秒钟
-	private static final int LOGIN_OK = 1;
+	private static final int LOGIN_OK = 0;
 	public static SharedPreferences sp;
 	int REQUEST_CODE = 0;
-	public static String name22;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -107,10 +106,10 @@ public class Login extends Activity implements OnClickListener {
 		passwordValue = etPassword.getText().toString();
 		if (loginNameValue.equals("") || loginNameValue.length() > 20
 				|| loginNameValue.length() < 1) {
-			Toast.makeText(Login.this, "用户名格式错误", Toast.LENGTH_SHORT).show();
+			Toast.makeText(LoginActivity.this, "用户名格式错误", Toast.LENGTH_SHORT).show();
 		} else if (passwordValue.equals("") || passwordValue.length() > 16
 				|| passwordValue.length() < 6) {
-			Toast.makeText(Login.this, "请输入正确密码", Toast.LENGTH_SHORT).show();
+			Toast.makeText(LoginActivity.this, "请输入正确密码", Toast.LENGTH_SHORT).show();
 		} else {
 			
 			Thread loginThread = new Thread(new LoginThread());
@@ -132,7 +131,7 @@ public class Login extends Activity implements OnClickListener {
 			Message msg = handler.obtainMessage();
 			if (loginValidate) {
 				if (responseMsg.equals("success")) {
-					msg.what = 0;
+					msg.what = LOGIN_OK;
 					handler.sendMessage(msg);
 				} else {
 					msg.what = 1;
@@ -151,32 +150,26 @@ public class Login extends Activity implements OnClickListener {
 	Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
-			case 0: {
+			case LOGIN_OK: {
 				Toast.makeText(getApplicationContext(), "登录成功！",
 						Toast.LENGTH_SHORT).show();
-				String bundle = new String();
-				bundle = etLoginName.getText().toString();
-				System.out.println(bundle + "11111111");
+		
+				Intent loginIntent = new Intent(LoginActivity.this, MaindemoActivity.class);
+				loginIntent.putExtra("username", loginNameValue);
+				loginIntent.putExtra("phone", phone);
+				loginIntent.putExtra("id", id);
+				loginIntent.putExtra("state", state);
 
-				Intent intent = new Intent(Login.this, MaindemoActivity.class);
-				intent.putExtra("NAME", loginNameValue);
-				intent.putExtra("phone", phone);
-				intent.putExtra("id", ID);
-				intent.putExtra("state", state);
-//				System.out.println(loginNameValue + phone + ID + state);
-				startActivity(intent);
-				// auto_check = false;
-				Login.this.finish();
-
+				startActivity(loginIntent);
+				LoginActivity.this.finish();
 				break;
 			}
-			case 1: {// loadingDialog.cancel();
+			case 1: {
 				Toast.makeText(getApplicationContext(), "输入的密码错误",
 						Toast.LENGTH_SHORT).show();
 				break;
 			}
 			case 2: {
-				// loadingDialog.cancel();
 				Toast.makeText(getApplicationContext(), "服务器连接失败",
 						Toast.LENGTH_SHORT).show();
 				break;
@@ -232,7 +225,7 @@ public class Login extends Activity implements OnClickListener {
 					httpurlconnection.getInputStream());
 			responseMsg = dis.readUTF();
 			phone = dis.readUTF();
-			ID = dis.readUTF();
+			id = dis.readUTF();
 			state = dis.readUTF();
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -83,7 +83,8 @@ import com.util.MyOrientationListener;
 import com.util.MyOrientationListener.OnOrientationListener;
 import com.util.jwdtransfertolength;
 
-public class Detail extends Activity implements OnGetRoutePlanResultListener {
+//求助请求地图界面
+public class DetailActivity extends Activity implements OnGetRoutePlanResultListener {
 	SupportMapFragment map;
 	LocationClient mLocClient;
 	MapStatusUpdate u, u1;
@@ -107,7 +108,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 	public MyLocationListenner myListener = new MyLocationListenner();
 	BitmapDescriptor mCurrentMarker;
 	Button requestLocButton, see;
-	TextView weiz, call, receive, more, back;
+	TextView weiz, call, receive, tvMore, back;
 	private int mXDirection;
 	Button button;
 	URL url = null, url1 = null;
@@ -157,7 +158,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 
 		call = (TextView) findViewById(R.id.call);
 		weiz = (TextView) findViewById(R.id.location1);
-		more = (TextView) findViewById(R.id.more);
+		tvMore = (TextView) findViewById(R.id.tv_more);
 		receive = (TextView) findViewById(R.id.receive);
 		back = (TextView) findViewById(R.id.return001);
 		see = (Button) findViewById(R.id.see);
@@ -255,12 +256,12 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 					}
 				} else if (v.equals(call)) {
 					AlertDialog.Builder builder = new AlertDialog.Builder(
-							Detail.this);
+							DetailActivity.this);
 					builder.setIcon(R.drawable.hx);
-					builder.setTitle("-Call the person-");
-					builder.setMessage("You will call the person who made the alarm! ");
+					builder.setTitle("-联系求助者-");
+					builder.setMessage("是否拨打电话？ ");
 					// PositiveButton
-					builder.setPositiveButton("call",
+					builder.setPositiveButton("确定",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -273,7 +274,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 								}
 							});
 					// NegativeButton
-					builder.setNegativeButton("cancel",
+					builder.setNegativeButton("取消",
 							new DialogInterface.OnClickListener() {
 								@Override
 								public void onClick(DialogInterface dialog,
@@ -282,8 +283,8 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 							});
 					builder.show();
 
-				} else if (v.equals(more)) {
-					Intent intent = new Intent(Detail.this, More.class);
+				} else if (v.equals(tvMore)) {
+					Intent intent = new Intent(DetailActivity.this, More.class);
 					intent.putExtra("id", id);
 					intent.putExtra("userid", userid);
 					intent.putExtra("infor", infor);
@@ -296,7 +297,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 					update();
 
 				} else if (v.equals(back)) {
-					Detail.this.finish();
+					DetailActivity.this.finish();
 				} else if (v.equals(see)) {
 
 					if (czjc == true) {
@@ -321,7 +322,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 			}
 		};
 		requestLocButton.setOnClickListener(btnClickListener);
-		more.setOnClickListener(btnClickListener);
+		tvMore.setOnClickListener(btnClickListener);
 		receive.setOnClickListener(btnClickListener);
 		call.setOnClickListener(btnClickListener);
 		back.setOnClickListener(btnClickListener);
@@ -378,7 +379,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 				Double.parseDouble(jingdu), Double.parseDouble(weidu), jingdu1,
 				weidu1));
 
-		bdA = BitmapDescriptorFactory.fromResource(R.drawable.ddx);
+		bdA = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
 		oo = new MarkerOptions().position(ll2).icon(bdA).zIndex(9)
 				.draggable(true);
 		mMarker = (Marker) (mBaiduMap.addOverlay(oo));
@@ -393,7 +394,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 	public void Initmarketclick() {
 		OnMarkerClickListener onClickListener = new OnMarkerClickListener() {
 			public boolean onMarkerClick(final Marker marker) {
-				button = new Button(Detail.this.getApplicationContext());
+				button = new Button(DetailActivity.this.getApplicationContext());
 				button.setBackgroundResource(R.drawable.popup);
 				final LatLng ll = marker.getPosition();
 				Point p = mBaiduMap.getProjection().toScreenLocation(ll);
@@ -406,7 +407,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 					listener = new OnInfoWindowClickListener() {
 						public void onInfoWindowClick() {
 							AlertDialog.Builder builder = new AlertDialog.Builder(
-									Detail.this);
+									DetailActivity.this);
 							builder.setIcon(R.drawable.hx);
 							builder.setTitle("我是民众：" + peoplename + "。" + "\n"
 									+ " 目前距离您：" + length + "m");
@@ -637,7 +638,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 				up();
 				abc = "0";
 				
-				Toast.makeText(Detail.this, "刷新线程", Toast.LENGTH_SHORT).show();
+				Toast.makeText(DetailActivity.this, "刷新线程", Toast.LENGTH_SHORT).show();
 				
 			}else{				
 			}
@@ -757,7 +758,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 		super.onStart();
 		mBaiduMap = mMapView.getMap();
 		mBaiduMap.setMyLocationEnabled(true);
-		mLocClient = new LocationClient(Detail.this);
+		mLocClient = new LocationClient(DetailActivity.this);
 		mLocClient.registerLocationListener(myListener);
 		LocationClientOption option = new LocationClientOption();
 		// 设置定位模式
@@ -811,7 +812,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 	@Override
 	public void onGetDrivingRouteResult(DrivingRouteResult result) {
 		if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-			Toast.makeText(Detail.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+			Toast.makeText(DetailActivity.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
 		}
 		if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
 			// 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
@@ -840,7 +841,7 @@ public class Detail extends Activity implements OnGetRoutePlanResultListener {
 	@Override
 	public void onGetWalkingRouteResult(WalkingRouteResult result) {
 		if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
-			Toast.makeText(Detail.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+			Toast.makeText(DetailActivity.this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
 		}
 		if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
 			// 起终点或途经点地址有岐义，通过以下接口获取建议查询信息

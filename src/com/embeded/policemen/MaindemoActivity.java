@@ -1,18 +1,13 @@
 package com.embeded.policemen;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MenuItem.OnMenuItemClickListener;
 import android.widget.Toast;
 
 import com.embeded.slidingmenu.view.LeftFragment;
@@ -25,9 +20,7 @@ public class MaindemoActivity extends FragmentActivity{
 	ViewPageFragment viewPageFragment;
 	private String username,phone,id,state;
 	public static Activity MaindemoActivity;
-	int REQUEST_CODE = 100;
-	boolean internetavaliable;
-	private boolean czjc = true;
+	boolean bInternet;
 
 	@Override
 	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
@@ -41,24 +34,24 @@ public class MaindemoActivity extends FragmentActivity{
 		setContentView(R.layout.activity_maindemo);
 		MaindemoActivity = this;
         Intent intent  = getIntent();
-        username =intent.getExtras().getString("NAME");
+        username =intent.getExtras().getString("username");
         id =intent.getExtras().getString("id");
         phone =intent.getExtras().getString("phone");
         state =intent.getExtras().getString("state");
          
-		Intent intent3 = new Intent();
- 		intent3.putExtra("username", username);
- 		intent3.putExtra("id", id);
- 		intent3.putExtra("phone", phone);
- 		intent3.putExtra("state", state);
- 		intent3.setAction("com.example.name123");
- 		System.out.println(username+phone);
- 		MaindemoActivity.this.sendBroadcast(intent3);
+//		Intent intent3 = new Intent();
+// 		intent3.putExtra("username", username);
+// 		intent3.putExtra("id", id);
+// 		intent3.putExtra("phone", phone);
+// 		intent3.putExtra("state", state);
+// 		intent3.setAction("com.example.name123");
+// 		System.out.println(username+phone);
+// 		MaindemoActivity.this.sendBroadcast(intent3);
          
 		init();
 
-		internetavaliable = isNetworkAvailable(this);
-		if (internetavaliable == true) {
+		bInternet = isNetworkAvailable(this);
+		if (bInternet == true) {
 		} else {
 			Toast.makeText(MaindemoActivity.this, "您的网络连接不正常，请重新连接！",
 					Toast.LENGTH_SHORT).show();
@@ -147,8 +140,7 @@ public class MaindemoActivity extends FragmentActivity{
 
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
-		
+		super.onDestroy();	
 	}
 	
 }

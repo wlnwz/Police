@@ -155,7 +155,7 @@ public class xiangxi extends Activity implements OnGetRoutePlanResultListener {
 
 		call = (TextView) findViewById(R.id.call);
 		weiz = (TextView) findViewById(R.id.location1);
-		more = (TextView) findViewById(R.id.more);
+		more = (TextView) findViewById(R.id.tv_more);
 		receive = (TextView) findViewById(R.id.receive);
 		back = (TextView) findViewById(R.id.return001);
 		see = (Button) findViewById(R.id.see);

@@ -69,13 +69,13 @@
             android:name="com.embeded.policemen.Dealingwith"
             android:screenOrientation="portrait" /> 
          <activity
-            android:name="com.embeded.policemen.Detail"
+            android:name="com.embeded.policemen.DetailActivity"
             android:screenOrientation="portrait" /> 
         <activity
             android:name="com.embeded.policemen.Finish"
             android:screenOrientation="portrait"/>
         <activity
-            android:name="com.embeded.policemen.Login"
+            android:name="com.embeded.policemen.LoginActivity"
             android:screenOrientation="portrait" />    
       <activity
             android:name="com.embeded.policemen.More"

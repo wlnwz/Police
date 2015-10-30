@@ -385,7 +385,7 @@ public class Dealingwith extends Activity implements OnGetRoutePlanResultListene
 				Double.parseDouble(jingdu), Double.parseDouble(weidu), jingdu1,
 				weidu1));
 
-		bdA = BitmapDescriptorFactory.fromResource(R.drawable.ddx);
+		bdA = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
 		oo = new MarkerOptions().position(ll2).icon(bdA).zIndex(9)
 				.draggable(true);
 		mMarker = (Marker) (mBaiduMap.addOverlay(oo));

@@ -22,7 +22,6 @@ import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
-import com.embeded.policemen.Login.LoginThread;
 
 import android.app.Activity;
 import android.content.Context;

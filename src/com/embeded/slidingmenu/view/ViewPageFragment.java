@@ -50,9 +50,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.location.LocationClient;
+import com.embeded.policemen.DetailActivity;
 import com.embeded.policemen.MaindemoActivity;
 import com.embeded.policemen.R;
-import com.embeded.policemen.Detail;
 import com.util.jwdtransfertolength;
 import com.util.location;
 
@@ -168,7 +168,7 @@ public class ViewPageFragment extends Fragment {
 						int position, long id) {
 					// TODO Auto-generated method stub
 
-					Intent intent = new Intent(getActivity(), Detail.class);
+					Intent intent = new Intent(getActivity(), DetailActivity.class);
 					intent.putExtra("ID1", ID12[position]);
 					intent.putExtra("userID1", userID12[position]);
 					intent.putExtra("peoplename", peoplename2[position]);
